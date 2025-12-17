@@ -1,0 +1,12 @@
+ggm_dwh:  # This should match the `profile` key in `dbt_project.yml`
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: localhost
+      user: youruser
+      password: yourpassword
+      dbname: ggm_dwh
+      schema: dwh
+      port: 3432
+      threads: 4

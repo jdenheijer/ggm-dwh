@@ -1,0 +1,23 @@
+name: 'ggm_dwh'
+version: '1.0.0'
+config-version: 2
+profile: ggm_dwh
+
+models:
+  ggm_dwh:
+    raw:
+      +schema: raw
+      +materialized: table
+    stg:
+      +schema: stg
+      +materialized: view
+    ggm:
+      +schema: ggm
+      +materialized: table
+    dm:
+      +schema: dm
+      +materialized: view
+
+seeds:
+  ggm_dwh:
+    schema: raw
