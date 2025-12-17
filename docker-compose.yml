@@ -11,7 +11,6 @@ services:
       POSTGRES_DB: ggm_dwh
     volumes:
       - postgres_data:/var/lib/postgresql-ggm/data
-      - ./sql:/docker-entrypoint-initdb.d
     ports:
       - "3432:5432"
     healthcheck:

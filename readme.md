@@ -1,4 +1,4 @@
-## ggm-dbt-postgres-pgadmin
+## ggm-dwh
 Dit project is een simpel voorbeeld dat een schets geeft van hoe het GGM gemodelleerd zou kunnen worden aan de hand van dbt. 
 
 Let op! Dit project is nog niet af en bevat ongeverifieerde door AI gegenereerde code!
@@ -14,7 +14,8 @@ python, git, docker
 Open Konsole, powershell of iets anders en navigeer naar de map waar je het  project wilt downloaden.
 
 ```bash
-git clone 
+git clone https://github.com/jdenheijer/ggm-dwh.git
+cd ggm-dwh
 #Takes between 30 seconds and several minutes to download and build the images
 docker-compose up --build -d
 ```
