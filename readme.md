@@ -4,7 +4,7 @@ Dit project is een simpel voorbeeld dat een schets geeft van hoe het GGM gemodel
 Let op! Dit project is nog niet af en bevat ongeverifieerde door AI gegenereerde code!
 
 Dit project gebruikt docker voor een locale Postgresql database, en pgadmin om de database te benaderen.
-Het bevat een dbt model waarmee rauwe data (gebaseerd op een zaak-applicatie) vertaald wordt naar de GGM tabel "zaken", onderdeel van .
+Het bevat een dbt model waarmee rauwe data (gebaseerd op een zaak-applicatie) vertaald wordt naar de GGM tabel "zaken", onderdeel van het RGBZ model wat een van de kernen is van het GGM.
 De rauwe data zijn in dit voorbeeld een drietal simpele csv bestanden in de dbt/seeds map.
 
 ### Benodigde tools
@@ -56,13 +56,16 @@ Draai nu het stg model
 ```bash
 dbt run --select stg
 ```
-Optioneel: Bekijk de views van het dwh_stg schema.
 
 Draai nu het ggm model
 ```bash
 dbt run --select ggm
 ```
-Optioneel: Bekijk de tabellen in het dwh_ggm schema.
+
+Draai nu het datamart model
+```bash
+dbt run --select dm
+```
 
 Genereer en bekijk de documentatie. dbt docs serve opent een webbrowser met het model.
 ```bash
@@ -71,9 +74,7 @@ dbt docs serve
 ```
 
 ### Next steps
-- toevoegen metadata vanuit het GGM, bv https://github.com/Gemeente-Delft/Gemeentelijk-Gegevensmodel/blob/f7957cc9baceeaa54b3837aa79aceeae32c30166/docs/definities/definitie_Model%20Kern%20RGBZ.md#zaak of een betere bron.
 - "Echt" het dbt model maken van Zaken, ipv deze ai schmuck. Check ook of het niet Zaak zou moeten zijn ipv zaken?
-- Simpele datamart toevoegen
 - implementeer open metadata https://docs.open-metadata.org/latest/quick-start/local-docker-deployment
 - implementeer cdc (waarschijnlijk met dbt snapshots) en breidt dataset uit
 - query naar sql-server ipv postgres ivm pilot omgeving?

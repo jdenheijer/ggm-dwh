@@ -1,0 +1,64 @@
+version: 2
+
+models:
+  - name: ggm_kern_rgbz_zaken
+    description: |
+      Een samenhangende hoeveelheid werk met een welgedefinieerde aanleiding en een welgedefinieerd eindresultaat, waarvan kwaliteit en doorlooptijd bewaakt moeten worden. (Bron: GEMMA GGM)
+    columns:
+      - name: zaak_id
+        description: "Unieke identificatie van de zaak. ('zaakidentificatie', AN40)"
+        tests:
+          - not_null
+          - unique
+      - name: archiefnominatie
+        description: "Indicatie of het zaakdossier (de ZAAK met alle bijbehorende DOCUMENTen) gearchiveerd dient te worden."
+      - name: einddatum
+        description: "De datum waarop de uitvoering van de zaak afgerond is."
+      - name: einddatumgepland
+        description: "De datum waarop volgens de planning verwacht wordt dat de zaak afgerond wordt."
+      - name: uiterlijkeeinddatumafdoening
+        description: "De laatste datum waarop volgens wet- en regelgeving de zaak afgerond dient te zijn."
+      - name: datumlaatstebetaling
+        description: "De datum waarop de meest recente betaling is verwerkt van kosten die gemoeid zijn met behandeling van de zaak."
+      - name: registratiedatum
+        description: "De datum waarop de zaakbehandelende organisatie de ZAAK heeft geregistreerd."
+      - name: datumpublicatie
+        description: "Datum waarop (het starten van) de zaak gepubliceerd is of wordt."
+      - name: startdatum
+        description: "De datum waarop met de uitvoering van de zaak is gestart."
+      - name: datumvernietigingdossier
+        description: "De datum waarop het, al dan niet gearchiveerde, zaakdossier (de ZAAK met alle bijbehorende DOCUMENTen) vernietigd mag worden."
+      - name: duurverlenging
+        description: "Som van de verlenging(en) van de doorlooptijd van de zaak, in dagen."
+      - name: indicatie_betaling
+        description: "Indicatie of de, met behandeling van de zaak gemoeide, kosten betaald zijn door de desbetreffende betrokkene."
+      - name: indicatie_deelzaken
+        description: "De aanduiding of een ZAAK behandeld wordt in deelzaken ('J' = deelzaak, 'N' = hoofdzaak)."
+      - name: indicatie_opschorting
+        description: "Indicatie of er sprake is van opschorting van de zaakbehandeling."
+      - name: leges
+        description: "Het bedrag aan leges dat voor de zaak is geregistreerd."
+      - name: omschrijving
+        description: "Een korte omschrijving van de zaak."
+      - name: omschrijving_resultaat
+        description: "Een korte omschrijving wat het resultaat van de zaak inhoudt."
+      - name: reden_opschorting
+        description: "Reden van (eventuele) opschorting van de zaak."
+      - name: redenverlenging
+        description: "Reden(en) voor verlenging van de doorlooptijd van de zaak."
+      - name: status
+        description: "Status van de zaak ('open' of 'closed') conform GGM 'Status' object."
+      - name: toelichting
+        description: "Een toelichting op de zaak."
+      - name: toelichting_resultaat
+        description: "Een toelichting op wat het resultaat van de zaak inhoudt."
+      - name: vertrouwelijkheidaanduiding
+        description: "Aanduiding of/hoe er sprake is van vertrouwelijkheid m.b.t. de zaak."
+      - name: zaaktype_id
+        description: "Het type zaak (verwijzing naar het Zaaktype object)."
+      - name: zaakniveau
+        description: "Het niveau van een ZAAK in de hierarchie van hoofdzaak met deelzaken (1 = hoofdzaak, 2 = deelzaak)."
+      - name: creationtime
+        description: "Tijdstip van registratie van de zaak in het bronsysteem."
+      - name: dbt_updated_at
+        description: "Tijdstip waarop dit record in dbt is bijgewerkt (laadmoment)."
