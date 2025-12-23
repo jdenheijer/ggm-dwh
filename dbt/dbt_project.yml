@@ -8,15 +8,19 @@ models:
     raw:
       +schema: raw
       +materialized: table
+      +tags: "raw"
     stg:
       +schema: stg
       +materialized: view
+      +tags: "bronze"
     ggm:
       +schema: ggm
       +materialized: table
+      +tags: "silver"
     dm:
       +schema: dm
       +materialized: view
+      +tags: "gold"
 
 seeds:
   ggm_dwh:

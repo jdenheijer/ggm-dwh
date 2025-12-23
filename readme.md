@@ -39,10 +39,9 @@ of
 pip install -r requirements.txt
 ```
 
-Open de dbt directory, installeer de dependencies, en check de database verbinding:
+Open de dbt directory en check de database verbinding:
 ```bash
 cd dbt
-dbt deps #<- voor nu niet nodig (idem packages.yml)>
 dbt debug
 ```
 
@@ -70,12 +69,19 @@ dbt run --select dm
 Genereer en bekijk de documentatie. dbt docs serve opent een webbrowser met het model.
 ```bash
 dbt docs generate
-dbt docs serve
+dbt docs serve --port 8081
 ```
 
 ### Next steps
 - "Echt" het dbt model maken van Zaken, ipv deze ai schmuck. Check ook of het niet Zaak zou moeten zijn ipv zaken?
-- implementeer open metadata https://docs.open-metadata.org/latest/quick-start/local-docker-deployment
+- implementeer open metadata https://docs.open-metadata.org/latest/quick-start/local-docker-deployment 
 - implementeer cdc (waarschijnlijk met dbt snapshots) en breidt dataset uit
 - query naar sql-server ipv postgres ivm pilot omgeving?
+- Ontsluiten van metadata over dbt runs (o.a. hoeveel geinsert, geupdate, gedelete, etc)
+- some dbt linting with dbt-score?
+- Veel andere details.. Hoe backfill je? Kan S3 als databron fungeren? etc etc
 - tbd...
+
+dbt run
+dbt docs generate
+dbt docs serve --port 8081

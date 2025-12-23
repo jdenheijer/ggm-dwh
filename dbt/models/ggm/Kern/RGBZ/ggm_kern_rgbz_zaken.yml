@@ -2,14 +2,18 @@ version: 2
 
 models:
   - name: ggm_kern_rgbz_zaken
-    description: |
-      Een samenhangende hoeveelheid werk met een welgedefinieerde aanleiding en een welgedefinieerd eindresultaat, waarvan kwaliteit en doorlooptijd bewaakt moeten worden. (Bron: GEMMA GGM)
+    description: "Een samenhangende hoeveelheid werk met een welgedefinieerde aanleiding en een welgedefinieerd eindresultaat, waarvan kwaliteit en doorlooptijd bewaakt moeten worden. (Bron: GEMMA GGM)"
+    meta:
+      owner: DGW
+    config:
+      tags: ['ggm', 'zaken']
     columns:
       - name: zaak_id
         description: "Unieke identificatie van de zaak. ('zaakidentificatie', AN40)"
         tests:
           - not_null
           - unique
+        tags: ['primary key', 'pii']
       - name: archiefnominatie
         description: "Indicatie of het zaakdossier (de ZAAK met alle bijbehorende DOCUMENTen) gearchiveerd dient te worden."
       - name: einddatum
@@ -46,6 +50,7 @@ models:
         description: "Reden van (eventuele) opschorting van de zaak."
       - name: redenverlenging
         description: "Reden(en) voor verlenging van de doorlooptijd van de zaak."
+
       - name: status
         description: "Status van de zaak ('open' of 'closed') conform GGM 'Status' object."
       - name: toelichting
