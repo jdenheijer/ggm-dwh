@@ -21,7 +21,7 @@ Druk op Volgende.
   Password: yourpassword
   Host and Port: postgres:5432
   Database: ggm_dwh
-  Ingest All Databses: toelichting_resultaat
+  Ingest All Databses: false
 
 Klik op Volgende, en daarna Save. Er wordt nu een ingestion-agent gestart. Als deze klaar is dan is de database inzichtelijk in Open Metadata.
 
@@ -29,7 +29,7 @@ Klik op Volgende, en daarna Save. Er wordt nu een ingestion-agent gestart. Als d
 #### Python requirements
 Voor de ingestie van dbt zijn er twee python packages nodig:
 ```bash
-pip install --upgrade mashumaro #
+pip install --upgrade mashumaro #misschien niet nodig als pip up to date is
 pip install collate-dbt-artifacts-parser
 pip install openmetadata-ingestion
 

@@ -82,6 +82,7 @@ dbt docs serve --port 8081
 - Veel andere details.. Hoe backfill je? Kan S3 als databron fungeren? etc etc
 - tbd...
 
+dbt seed
 dbt run
 dbt docs generate
 dbt docs serve --port 8081
