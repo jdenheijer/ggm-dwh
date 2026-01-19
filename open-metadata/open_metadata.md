@@ -29,9 +29,8 @@ Klik op Volgende, en daarna Save. Er wordt nu een ingestion-agent gestart. Als d
 #### Python requirements
 Voor de ingestie van dbt zijn er twee python packages nodig:
 ```bash
+pip install "openmetadata-ingestion[dbt]"
 pip install --upgrade mashumaro #misschien niet nodig als pip up to date is
-pip install collate-dbt-artifacts-parser
-pip install openmetadata-ingestion
 
 ```
 
@@ -44,9 +43,9 @@ Haal ook jouw jwt token op uit open metadata
 4. Open de IngestionBot
 5. Kopieer het JWT token, en plaats dat in de .env file
 
-in de rootfolder van dit project, draai in je console het command
+Zorg ervoor dat het dbt  model is gedraaid. In de dbt folder van dit project, draai in je console het command
 ```bash
-python run_ingestion.py
+metadata ingest-dbt
 ```
 
 ### Next steps

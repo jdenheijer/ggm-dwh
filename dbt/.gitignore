@@ -3,3 +3,4 @@ logs
 target
 .user.yml
 package-lock.yml
+.env
