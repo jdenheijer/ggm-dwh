@@ -19,7 +19,7 @@ Druk op Volgende.
   Username: youruser
   Auth config type: Basic Auth
   Password: yourpassword
-  Host and Port: postgres:5432
+  Host and Port: localhost:3432
   Database: ggm_dwh
   Ingest All Databses: false
 
@@ -30,7 +30,7 @@ Klik op Volgende, en daarna Save. Er wordt nu een ingestion-agent gestart. Als d
 Voor de ingestie van dbt zijn er twee python packages nodig:
 ```bash
 pip install "openmetadata-ingestion[dbt]"
-pip install --upgrade mashumaro #misschien niet nodig als pip up to date is
+pip install --upgrade mashumaro #openmetadata-ingestion[dbt] installeert een verouderde versie van mashumaro
 
 ```
 

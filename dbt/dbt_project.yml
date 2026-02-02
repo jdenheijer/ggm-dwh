@@ -25,3 +25,8 @@ models:
 seeds:
   ggm_dwh:
     schema: raw
+
+vars:
+  openmetadata_host_port: "${OPENMETADATA_HOST_PORT}"
+  openmetadata_jwt_token: "${OPENMETADATA_JWT_TOKEN}"
+  openmetadata_service_name: "${OPENMETADATA_SERVICE_NAME}"
