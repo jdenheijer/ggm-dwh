@@ -12,7 +12,7 @@ import pandas as pd
 DOWNLOAD_PATH = '/tmp'
 
 with DAG(
-    dag_id="rxm_download_and_extract",
+    dag_id="get_rxm_data",
     start_date=datetime(2026, 2, 11),
     catchup=False,
     tags=["example"],
