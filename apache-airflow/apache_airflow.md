@@ -4,6 +4,23 @@ Apache Airflow is an open-source platform used for programmatically authoring, s
 ## Installatie airflow
 Volg de instructies op de airflow website om een docker image te draaien: https://airflow.apache.org/docs/apache-airflow/stable/howto/docker-compose/index.html
 
+```Powershell
+cd apache-airflow
+Invoke-WebRequest -Uri "https://airflow.apache.org/docs/apache-airflow/3.1.7/docker-compose.yaml " -OutFile "docker-compose.yaml"
+New-Item .env
+# Maak airflow config aan 
+docker compose run airflow-cli airflow config list
+```
+
+In de config staat nu airflow.cfg. Pas daar de volgende waardes aan:
+    load_examples = False
+    default_timezone = Europe/Amsterdam
+
+```Powershell
+docker compose up -d
+```
+
+
 # Login
 http://localhost:8080
 airflow
