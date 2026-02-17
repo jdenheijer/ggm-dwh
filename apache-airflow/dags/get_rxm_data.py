@@ -8,16 +8,21 @@ import re
 from zipfile import ZipFile
 import os
 import pandas as pd
+from airflow.timetables.trigger import CronTriggerTimetable
 
-DOWNLOAD_PATH = '/tmp'
+DATA_DIRECTORY = '/tmp'
 
 with DAG(
     dag_id="get_rxm_data",
-    start_date=datetime(2026, 2, 11),
+    start_date=datetime(2026, 2, 17),
     catchup=False,
-    tags=["example"],
-    schedule="2 0 * * *",
+    tags=["rxm"],
+    schedule=CronTriggerTimetable("0 1 * * *", timezone="utc"),
 ) as dag:
+
+    @task()
+    def prepare_download():
+        #determine run date, check previous run, create folder
 
     @task()
     def download_zip():
@@ -36,7 +41,7 @@ with DAG(
                 if content_disposition and re.search(r'filename="?([^";]+)"?', content_disposition)
                 else 'downloaded_file.zip'
             )
-            file_path = os.path.join(DOWNLOAD_PATH, filename)
+            file_path = os.path.join(DATA_DIRECTORY, filename)
             with open(file_path, 'wb') as file:
                 file.write(response.content)
             return file_path  # Pass file path to next task
@@ -47,13 +52,14 @@ with DAG(
 
     @task()
     def unzip_file(zip_file_path: str, **context):
-        # Retrieve logical date from DAG context
-        logical_date = context['dag_run'].logical_date
+        # Retrieve logical date from DAG context and determine the data_date
+        logical_date = context['logical_date']
+        data_date = logical_date - timedelta(days=1)
         # Format logical date as YYYY-MM-DD
-        logical_date_str = logical_date.strftime('%Y-%m-%d')
+        data_date_str = data_date.strftime('%Y-%m-%d')
 
-        # Create extraction path using logical date
-        extract_path = os.path.join('/tmp/rxm', logical_date_str)
+        # Create extraction path using data date
+        extract_path = os.path.join('/tmp/rxm', data_date_str)
         os.makedirs(extract_path, exist_ok=True)
 
         with ZipFile(zip_file_path, 'r') as zObject:
